@@ -74,7 +74,8 @@ public class AplikasiPerbankan {
             System.out.println("2. Tarik Tunai");
             System.out.println("3. Investasi");
             System.out.println("4. Top-up e-money");
-            System.out.println("5. Keluar");
+            System.out.println("5. Transfer");
+            System.out.println("6. Keluar");
 
             System.out.print("Pilih transaksi (1-5): ");
             int pilihan = scanner.nextInt();
@@ -93,6 +94,9 @@ public class AplikasiPerbankan {
                     Transaksi.topUpEmoney(nasabah);
                     break;
                 case 5:
+                    Transaksi.transfer(nasabah);
+                    break;    
+                case 6:
                     // Menampilkan struk transaksi sebelum keluar
                     nasabah.tampilkanStrukTransaksi();
 
