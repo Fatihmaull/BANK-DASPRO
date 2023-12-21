@@ -55,4 +55,26 @@ public class Transaksi {
             System.out.println("Jumlah top-up e-money tidak valid atau saldo tidak mencukupi.");
         }
     }
+
+    public static void transfer(Akun akun) {
+        
+        System.out.print("Masukan no.Rek tujuan: ");
+        String noRek = scanner.next();
+        
+        System.out.print("Masukkan jumlah transfer: ");
+        double jumlah = scanner.nextDouble();
+        
+        scanner.nextLine();
+        
+        double biayaAdmin = 2000;
+        if (jumlah > 0 && jumlah <= akun.getTotalSaldo()) {
+            akun.setTotalSaldo(akun.getTotalSaldo() - (jumlah + biayaAdmin));
+            akun.setCatatanTransaksi("Transfer: -" + jumlah);
+            System.out.println("Biaya admin: " + biayaAdmin);
+            akun.setCatatanTransaksi("No.Rek tujuan: -" + noRek);
+            System.out.println("Transfer berhasil. Saldo saat ini: " + akun.getTotalSaldo());
+        } else {
+            System.out.println("Jumlah transfer tidak valid atau saldo tidak mencukupi.");
+        }
+    }
 }
